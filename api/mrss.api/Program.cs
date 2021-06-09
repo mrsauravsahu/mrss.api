@@ -1,12 +1,14 @@
-﻿using System;
+using System;
+using Microsoft.AspNetCore.Builder;
 
-namespace mrss.api
+var app = WebApplication.Create();
+
+app.MapGet("/", new Func<dynamic>(() => new
 {
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
-        }
-    }
-}
+  Data = new
+  {
+    App = "mrss"
+  }
+}));
+
+await app.RunAsync();
