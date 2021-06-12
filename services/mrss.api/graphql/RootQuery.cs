@@ -12,7 +12,6 @@ namespace mrss.api.graphql
     {
       this.aboutService = aboutService;
 
-      // Create a service for this
       FieldAsync<About, About>(
         nameof(About),
       "About this app",
