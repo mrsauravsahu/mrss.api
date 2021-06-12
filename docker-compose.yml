@@ -4,7 +4,7 @@ services:
   api:
     image: mcr.microsoft.com/dotnet/sdk:5.0 
     volumes: 
-      - './mrss.api:/app'
+      - './services/mrss.api:/app'
     working_dir: '/app'
     ports: 
       - '5000:5000'
