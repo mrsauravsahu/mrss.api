@@ -9,11 +9,11 @@ namespace mrss.api.models
     public About About { get; set; }
     public RootQuery()
     {
+      // Create a service for this
       Field<About>(nameof(About), "About this app", resolve: (_) => new About
       {
         Name = "mrss.api",
         Version = "v0.0.1",
-        // Version = File.ReadAllText("../VERSION")
       });
     }
   }

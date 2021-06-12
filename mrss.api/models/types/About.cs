@@ -2,8 +2,6 @@ using GraphQL.Types;
 
 namespace mrss.api.models.types
 {
-
-
   public class About : ObjectGraphType<About>
   {
     public new string Name { get; set; }
