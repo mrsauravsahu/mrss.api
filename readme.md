@@ -25,7 +25,7 @@ Run `$ docker compose up -d` at the root of the project.
 
 You should see the services coming up with 
 ```bash
-docker compose ps
+$ docker compose ps
 NAME                SERVICE             STATUS              PORTS
 portfolio_api_1     api                 running             0.0.0.0:5000->5000/tcp, :::5000->5000/tcp
 ```
