@@ -1,16 +1,26 @@
 using System;
-using System.IO;
-using Microsoft.AspNetCore.Builder;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
-var app = WebApplication.Create();
-
-var version = new Version(File.ReadAllText("VERSION"));
-app.MapGet("/", new Func<dynamic>(() => new
+namespace mrss.api
 {
-  Data = new
-  {
-    Version = version
-  }
-}));
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            CreateHostBuilder(args).Build().Run();
+        }
 
-await app.RunAsync();
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
+    }
+}
