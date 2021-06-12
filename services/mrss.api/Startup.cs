@@ -6,7 +6,10 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using mrss.api.models;
+using mrss.api.graphql;
+using mrss.api.services;
+using mrss.types;
+using Propfull.AspNet.Config;
 
 namespace mrss.api
 {
@@ -24,6 +27,12 @@ namespace mrss.api
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
+      // App Config
+      services.Configure<AppConfig>(Configuration.GetSection(nameof(AppConfig)));
+      services.AddSingleton(options => options.GetConfigService<AppConfig>());
+
+      // Services
+      services.AddSingleton<AboutService>();
 
       services.AddControllers();
 

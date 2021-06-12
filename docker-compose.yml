@@ -2,10 +2,12 @@ version: '3.1'
 
 services:
   api:
-    image: mcr.microsoft.com/dotnet/sdk:5.0 
+    image: mcr.microsoft.com/dotnet/sdk:5.0
     volumes: 
-      - './services/mrss.api:/app'
+      - '.:/app'
     working_dir: '/app'
     ports: 
       - '5000:5000'
-    entrypoint: "dotnet watch run --urls http://*:5000"
+    environment: 
+      AppConfig__Name: "mrss.api"
+    entrypoint: "dotnet watch run --urls http://*:5000 -p services/mrss.api"

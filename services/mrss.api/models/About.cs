@@ -1,6 +1,6 @@
 using GraphQL.Types;
 
-namespace mrss.api.models.types
+namespace mrss.api.models
 {
   public class About : ObjectGraphType<About>
   {
