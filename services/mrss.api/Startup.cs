@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 using mrss.api.models;
 
 namespace mrss.api
@@ -27,16 +26,6 @@ namespace mrss.api
     {
 
       services.AddControllers();
-      services.AddSwaggerGen(c =>
-      {
-        c.SwaggerDoc(
-            $"v{AppVersion}",
-            new OpenApiInfo
-            {
-              Title = "mrss.api",
-              Version = $"v{AppVersion}"
-            });
-      });
 
       // TODO: Configure GraphQL
       services
@@ -49,12 +38,7 @@ namespace mrss.api
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
-      if (env.IsDevelopment())
-      {
-        app.UseDeveloperExceptionPage();
-        app.UseSwagger();
-        app.UseSwaggerUI(c => c.SwaggerEndpoint($"/swagger/v{AppVersion}/swagger.json", "mrss.api"));
-      }
+      if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
       app.UseRouting();
 
@@ -66,7 +50,6 @@ namespace mrss.api
       });
 
       app.UseGraphQL<PortfolioSchema>();
-      // app.UseGraphQLGraphiQL();
       app.UseGraphQLPlayground();
     }
   }

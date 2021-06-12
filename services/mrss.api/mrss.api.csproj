@@ -9,7 +9,6 @@
     <PackageReference Include="GraphQL.Server.All" Version="5.0.2" />
     <PackageReference Include="GraphQL.Server.Ui.GraphiQL" Version="5.0.2" />
     <PackageReference Include="GraphQL.SystemTextJson" Version="4.5.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 
 </Project>
