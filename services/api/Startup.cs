@@ -19,12 +19,8 @@ namespace mrss.api
     public Startup(IConfiguration configuration)
     {
       Configuration = configuration;
-      // var rootDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
-      // var versionFilePath = Path.Join(rootDirectory, "VERSION");
 
-      // var location = new Uri(Assembly.GetEntryAssembly().GetName().CodeBase);
-
-      // var versionFilePath = new FileInfo(location.AbsolutePath).Directory.FullName;
+      // TODO: Reuse this in AboutService
       var versionFilePath = Path.Join(System.AppContext.BaseDirectory, "VERSION");
       Console.WriteLine($"path {versionFilePath}");
       AppVersion = new Version(File.ReadAllText(versionFilePath));
