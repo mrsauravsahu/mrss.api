@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\lib-types\mrss.types.csproj" />
+    <ProjectReference Include="..\..\lib\types\mrss.types.csproj" />
   </ItemGroup>
 
 </Project>
