@@ -10,4 +10,4 @@ services:
       - '5000:5000'
     environment: 
       AppConfig__Name: "mrss.api"
-    entrypoint: "dotnet watch run --urls http://*:5000 -p services/mrss.api"
+    entrypoint: "dotnet watch run --urls http://*:5000 -p services/api/mrss.api.csproj"
