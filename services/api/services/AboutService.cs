@@ -18,10 +18,12 @@ namespace mrss.api.services
     internal async Task<About> GetAsync(IResolveFieldContext<RootQuery> _)
     {
       var config = await configService.GetConfigAsync();
+      var rootDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);
+      var versionFilePath = Path.Join(rootDirectory, "VERSION");
       return new About
       {
         Name = config.Name,
-        Version = $"v{File.ReadAllText(Path.Join(Environment.CurrentDirectory, "VERSION"))}"
+        Version = $"v{File.ReadAllText(versionFilePath)}"
       };
     }
   }

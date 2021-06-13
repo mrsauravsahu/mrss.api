@@ -19,7 +19,11 @@ namespace mrss.api
     public Startup(IConfiguration configuration)
     {
       Configuration = configuration;
-      AppVersion = new Version(File.ReadAllText("./VERSION"));
+
+      // TODO: Reuse this in AboutService
+      var versionFilePath = Path.Join(System.AppContext.BaseDirectory, "VERSION");
+      Console.WriteLine($"path {versionFilePath}");
+      AppVersion = new Version(File.ReadAllText(versionFilePath));
     }
 
     public IConfiguration Configuration { get; }
